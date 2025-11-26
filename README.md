@@ -17,6 +17,6 @@ Este proyecto consiste en un simulador de gestion de memoria para un Sistema Ope
 
 ## Modulos:
 
-process.py: Este modulo es responsable de la creacion y seguimiento de los procesos individuales, calculando sus requerimientos de paginas y manteniendo la Tabla de Paginas actualizada en tiempo real.
+process.py: Este modulo es responsable de la creacion y seguimiento de los procesos individuales, calculando sus requerimientos de paginas y manteniendo la tabla de paginas actualizada en tiempo real.
 
 ---

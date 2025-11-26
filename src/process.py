@@ -72,5 +72,5 @@ if __name__ == "__main__":
     p1.update_page_status(1, frame_id=11, location='RAM')
     p1.update_page_status(2, frame_id=5, location='SWAP')
 
-    #mostrar tabla de paginas (opcion 5 del menu)
+    #mostrar tabla de paginas (opcion 5 del menu
     p1.show_page_table()"""
