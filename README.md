@@ -1,8 +1,22 @@
-Simulador de Gestor de Memoria RAM — SGMR
+# Simulador de Gestor de Memoria RAM — SGMR
 
-<br> Integrantes de equipo:
-<br> Kim Martínez Taesoo
-<br> Guzman García Lizbeth Neri
-<br> Chavarria Uribe Leo
-<br> Vicente Bautista Roberto Nicolas
-<br> Zertuche Zamora Sergio Gabriel
+## Integrantes de equipo
+- Kim Martínez Taesoo  
+- Guzman García Lizbeth Neri  
+- Chavarria Uribe Leo  
+- Vicente Bautista Roberto Nicolas  
+- Zertuche Zamora Sergio Gabriel  
+
+---
+
+## Descripcion del Proyecto
+
+Este proyecto consiste en un simulador de gestion de memoria para un Sistema Operativo, implementando esquemas de paginacion, memoria virtual (Swap) y el algoritmo de reemplazo FIFO (First-In, First-Out).
+
+---
+
+## Modulos:
+
+process.py: Este modulo es responsable de la creacion y seguimiento de los procesos individuales, calculando sus requerimientos de paginas y manteniendo la Tabla de Paginas actualizada en tiempo real.
+
+---
