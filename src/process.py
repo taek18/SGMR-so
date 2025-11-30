@@ -7,6 +7,7 @@ class Process:
         self.id = pid  # Para que simulator.py no llore
         self.pid = pid  # Para que paging.py no llore
 
+        self.state = "new"
         self.size = size
         self.page_size = page_size
 
@@ -30,6 +31,7 @@ class Process:
             self.page_table[page_number]['frame_id'] = frame_id
             self.page_table[page_number]['location'] = location
             self.page_table[page_number]['present'] = (location == 'RAM')
+            self.update_state()
         else:
             print(f"Error: La pagina {page_number} no existe en el proceso {self.pid}")
 
@@ -50,3 +52,16 @@ class Process:
 
     def __repr__(self):
         return f"<Proceso {self.pid}: {self.size} bytes ({self.num_pages} pags)>"
+
+    def update_state(self):
+        in_ram = any(info['location'] == 'RAM' for info in self.page_table.values())
+        in_swap = any(info['location'] == 'SWAP' for info in self.page_table.values())
+
+        if in_ram and not in_swap:
+            self.state = "active"
+        elif in_ram and in_swap:
+            self.state = "partially_swapped"
+        elif not in_ram and in_swap:
+            self.state = "swapped"
+        else:
+            self.state = "new"
