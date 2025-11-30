@@ -3,7 +3,7 @@ import os
 import sys
 
 def load_config(filename = 'config.ini'):
-    config = configparser.ConfigParser()
+    config = configparser.ConfigParser(inline_comment_prefixes=('#', ';'))
 
     if not os.path.exists(filename):
         print(f"Error: El archivo {filename} no existe.")
@@ -23,7 +23,7 @@ def load_config(filename = 'config.ini'):
 
     for key in required_keys:
         if key not in section:
-            print(f"Error: no se encontro la clave '{key} ' dentro de [MEMORY].")
+            print(f"Error: no se encontro la clave '{key}' dentro de [MEMORY].")
             sys.exit(1)
 
     try:
@@ -39,9 +39,11 @@ def load_config(filename = 'config.ini'):
         sys.exit(1)
 
     if ram_size % page_size != 0:
-        print("Advertencia: RAM no es múltiplo exacto del tamaño de página.")
+        print("Error: RAM no es múltiplo exacto…")
+        sys.exit(1)
     if swap_size % page_size != 0:
-        print("Advertencia: SWAP no es múltiplo exacto del tamaño de página.")
+        print("Error: RAM no es múltiplo exacto…")
+        sys.exit(1)
 
     frames_ram = ram_size // page_size
     frames_swap = swap_size // page_size
